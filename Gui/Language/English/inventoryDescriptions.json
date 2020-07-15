@@ -1,0 +1,23 @@
+{
+	"e1e66432-6332-46af-909d-4ac6f01e5e32":
+	{
+		"title": "W Converter",
+		"description": "When connected to a drivers seat, press [W] to turn this part on.\n\nMade by TechnologicNick."
+	},
+    "bd584234-94a6-4688-928f-06ae37769ef2":
+	{
+		"title": "A Converter",
+		"description": "When connected to a drivers seat, press [A] to turn this part on.\n\nMade by TechnologicNick."
+	},
+    "2a0e7e29-13f5-4127-9c05-d5694e56d110":
+	{
+		"title": "S Converter",
+		"description": "When connected to a drivers seat, press [S] to turn this part on.\n\nMade by TechnologicNick."
+	},
+    "fac84c0f-ef7f-4b0c-9c8d-c25c424fa25e":
+	{
+		"title": "D Converter",
+		"description": "When connected to a drivers seat, press [D] to turn this part on.\n\nMade by TechnologicNick."
+	}
+    
+}
