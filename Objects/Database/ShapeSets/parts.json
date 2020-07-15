@@ -36,7 +36,10 @@
             "scripted" : 
 			{
 				"filename": "$MOD_DATA/Scripts/WASD_Converter.lua",
-				"classname": "W_Converter"
+				"classname": "W_Converter",
+                "data": {
+                    "action": "forward"
+                }
 			},
 			"color": "ff0000",
 			"box": { "x": 1, "y": 1, "z": 1 },
@@ -79,7 +82,10 @@
             "scripted" : 
 			{
 				"filename": "$MOD_DATA/Scripts/WASD_Converter.lua",
-				"classname": "A_Converter"
+				"classname": "A_Converter",
+                "data": {
+                    "action": "left"
+                }
 			},
 			"color": "ff0000",
 			"box": { "x": 1, "y": 1, "z": 1 },
@@ -121,7 +127,10 @@
             "scripted" : 
 			{
 				"filename": "$MOD_DATA/Scripts/WASD_Converter.lua",
-				"classname": "S_Converter"
+				"classname": "S_Converter",
+                "data": {
+                    "action": "backward"
+                }
 			},
 			"color": "ff0000",
 			"box": { "x": 1, "y": 1, "z": 1 },
@@ -164,7 +173,10 @@
             "scripted" : 
 			{
 				"filename": "$MOD_DATA/Scripts/WASD_Converter.lua",
-				"classname": "D_Converter"
+				"classname": "D_Converter",
+                "data": {
+                    "action": "right"
+                }
 			},
 			"color": "ff0000",
 			"box": { "x": 1, "y": 1, "z": 1 },
