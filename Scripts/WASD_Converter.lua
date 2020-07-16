@@ -40,19 +40,20 @@ function Converter.sv_setEnabled( self, enabled, power )
     end
 end
 
-function Converter.cl_updateVisuals( self )
-    self.interactable:setUvFrameIndex(self.interactable.active and 6 or 0)
-    self.interactable:setPoseWeight(0, self.interactable.active and 1 or 0)
+function Converter.client_onFixedUpdate( self, timeStep )
+    local enabled = self.seat and (self.converterFunction(self.seat) * (self.inverted and -1 or 1) == 1) or false
+
+    self.interactable:setUvFrameIndex(enabled and 6 or 0)
+    self.interactable:setPoseWeight(0, enabled and 1 or 0)
 end
 
 function Converter.updateSeat( self )
     self.seat = self.interactable:getSingleParent()
 end
 
-function Converter.calculateEnabled( self )
+function Converter.sv_calculateEnabled( self )
     self:updateSeat()
     
-    print(self.seat)
     if self.seat then
         local value = self.converterFunction(self.seat) * (self.inverted and -1 or 1)
         
@@ -67,7 +68,7 @@ function Converter.calculateEnabled( self )
 end
 
 function Converter.server_onFixedUpdate( self, timeStep )
-    self:calculateEnabled()
+    self:sv_calculateEnabled()
 end
 
 
@@ -82,20 +83,21 @@ A_Converter = class( Converter )
 S_Converter = class( Converter )
 D_Converter = class( Converter )
 
-function W_Converter.server_onCreate( self )
+-- Abusing the fact that the host also has a client
+function W_Converter.client_onCreate( self )
     self.converterFunction = self.interactable.getSteeringPower
 end
 
-function A_Converter.server_onCreate( self )
+function A_Converter.client_onCreate( self )
     self.converterFunction = self.interactable.getSteeringAngle
     self.inverted = true
 end
 
-function S_Converter.server_onCreate( self )
+function S_Converter.client_onCreate( self )
     self.converterFunction = self.interactable.getSteeringPower
     self.inverted = true
 end
 
-function D_Converter.server_onCreate( self )
+function D_Converter.client_onCreate( self )
     self.converterFunction = self.interactable.getSteeringAngle
 end
