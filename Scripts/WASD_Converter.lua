@@ -41,6 +41,7 @@ function Converter.sv_setEnabled( self, enabled, power )
 end
 
 function Converter.client_onFixedUpdate( self, timeStep )
+    -- Calculate if the converter is enabled client-side to decrease delay
     local enabled = self.seat and (self.converterFunction(self.seat) * (self.inverted and -1 or 1) == 1) or false
 
     self.interactable:setUvFrameIndex(enabled and 6 or 0)
@@ -64,6 +65,8 @@ function Converter.sv_calculateEnabled( self )
         else
             self:sv_setEnabled(false, 0.0)
         end
+    else
+        self:sv_setEnabled(false, 0.0)
     end
 end
 
