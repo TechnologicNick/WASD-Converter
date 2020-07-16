@@ -27,15 +27,19 @@ function Converter.sv_setEnabled( self, enabled, power )
     
     local shouldAlwaysActive = nil
     for _,v in ipairs(self.interactable:getChildren()) do
-        if tostring(v:getType()) == "Controller" then
+        --print(tostring(v:getType()))
+        if tostring(v:getType()) == "controller" then
             if shouldAlwaysActive == nil then
+                --print(true)
                 shouldAlwaysActive = true
             end
         else
+            --print(false)
             shouldAlwaysActive = false
         end
     end
     if shouldAlwaysActive ~= nil and shouldAlwaysActive == true then
+        --print("result")
         self.interactable.active = true
     end
 end
@@ -66,7 +70,8 @@ function Converter.sv_calculateEnabled( self )
             self:sv_setEnabled(false, 0.0)
         end
     else
-        self:sv_setEnabled(false, 0.0)
+        self.interactable.power = 0
+        self.interactable.active = false
     end
 end
 
