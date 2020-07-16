@@ -25,21 +25,18 @@ function Converter.sv_setEnabled( self, enabled, power )
     self.interactable.power = power
     self.interactable.active = enabled
     
+    -- For controllers the parent needs to be always active
     local shouldAlwaysActive = nil
     for _,v in ipairs(self.interactable:getChildren()) do
-        --print(tostring(v:getType()))
         if tostring(v:getType()) == "controller" then
             if shouldAlwaysActive == nil then
-                --print(true)
                 shouldAlwaysActive = true
             end
         else
-            --print(false)
             shouldAlwaysActive = false
         end
     end
     if shouldAlwaysActive ~= nil and shouldAlwaysActive == true then
-        --print("result")
         self.interactable.active = true
     end
 end
